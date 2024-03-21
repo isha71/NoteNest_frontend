@@ -1,3 +1,4 @@
+
 # NoteNest
 NoteNest is a web application that allows users to securely manage their notes. It provides features for user registration, login, adding, editing, and deleting notes, as well as deleting user accounts.
 
@@ -9,7 +10,6 @@ NoteNest is a web application that allows users to securely manage their notes. 
    - [Prerequisites](#prerequisites)
    - [Installation](#installation)
 4. [Usage](#usage)
-5. [API Endpoints](#api-endpoints)
 6. [Contributing](#contributing)
 7. [License](#license)
 
@@ -42,45 +42,33 @@ NoteNest is a web application that allows users to securely manage their notes. 
 #### Prerequisites
 
 - Node.js installed on your machine
-- PostgreSQL installed and running locally or accessible via a URL
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/NoteNest.git
+   git clone https://github.com/isha71/NoteNest_frontend.git
    ```
-2. Navigate to the project directory:
-   ```bash
-   cd NoteNest
-   ```
-3. Install dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
 ### Usage
+Before starting the frontend server, ensure the backend server is running. Follow these steps:
 
-1. Start the backend server:
+1. Navigate to the backend repository of this project https://github.com/isha71/NoteNest_backend and start the server.
+
+2. Create a .env file in the frontend directory.
+
+3. Write down the backend server address in .env file 
+REACT_APP_SERVER_ADDRESS=http://localhost:5000.
+
+4. Start the frontend server:
    ```bash
    npm start
    ```
-2. Start the frontend server:
-   ```bash
-   cd frontend
-   npm start
-   ```
-3. Open your web browser and visit http://localhost:3000 to use the NoteNest application.
 
-### API Endpoints
-
-- **POST /register:** Register a new user.
-- **POST /login:** Authenticate and log in a user.
-- **POST /addNote:** Add a new note for the authenticated user.
-- **POST /editNote:** Edit an existing note for the authenticated user.
-- **DELETE /deleteNote:** Delete a note for the authenticated user.
-- **DELETE /deleteUser:** Delete the user account of the authenticated user.
-- **POST /getUserData:** Retrieve user data and existing notes for the authenticated user.
 
 ### Contributing
 
@@ -89,3 +77,4 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 ### License
 
 This project is licensed under the MIT License.
+
