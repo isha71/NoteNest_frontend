@@ -54,6 +54,7 @@ function Form(props) {
             // Handle registration errors
             setUserData((prevValue) => {
               // Clear username field if user already exists
+              alert("username already exists! Please try another username");
               return {
                 ...prevValue,
                 username: "",
@@ -75,8 +76,7 @@ function Form(props) {
         .catch((err) => {
           // Handle login errors
           console.log(err);
-          const { message } = err.response.data;
-          if (message === "User not found") {
+          if (err.code === 404) {
             // If user doesn't exist, alert user to register
             alert("User not found. Please register!");
             setUserData((prevValue) => {
@@ -87,7 +87,7 @@ function Form(props) {
                 password: "",
               };
             });
-          } else if (message === "Incorrect password") {
+          } else if (err.code === 401) {
             // If password is incorrect, alert user
             alert("Incorrect password");
             setUserData((prevValue) => {

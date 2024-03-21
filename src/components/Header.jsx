@@ -29,8 +29,7 @@ function Header(props) {
         })
         .catch((err) => {
           // Handle account deletion errors
-          const { message } = err.response.data;
-          alert(message); // Alert user with error message
+          alert("Error deleting user"); // Alert user with error message
         });
     }
   }
