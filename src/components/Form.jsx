@@ -110,8 +110,8 @@ function Form(props) {
           <input
             type="text"
             placeholder="Full Name"
-            name="fullName"
-            value={userData.fullName}
+            name="fullname"
+            value={userData.fullname}
             onChange={handleFormChange}
             required
           />
