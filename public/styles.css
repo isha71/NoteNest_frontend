@@ -269,6 +269,30 @@ header {
   left: 0;
 }
 
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav .menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  align-items: center;
+}
+
+nav .menu span {
+  color: white;
+  padding-right: 16px;
+  margin: 25.5px 0;
+  cursor: pointer;
+}
+
 .headerContainer {
   width: 100%;
 }
@@ -321,7 +345,7 @@ header h1 i {
   border-radius: 7px;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.5);
-  margin-bottom: 32px;
+  margin-bottom: 18px;
 }
 
 .createNote input,
@@ -449,7 +473,32 @@ header h1 i {
 
   .greetUser {
     align-self: center;
-    margin: 6px 0;
+    margin-top: 6px;
+  }
+
+  nav {
+    align-items: start;
+  }
+
+  nav .menu {
+    display: flex;
+    align-items: flex-start;
+    /* margin-top: 16px; */
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
   }
 
   .note {
@@ -466,15 +515,20 @@ header h1 i {
     font-size: 26px;
   }
 
-  .noteContainer {
-    padding-top: 98px;
+  .noteContentContainer {
+    margin-top: 8px;
   }
+
+  /* .noteContainer {
+    padding-top: 98px;
+  } */
+
 }
 
 @media only screen and (max-width: 340px) {
-  .noteContainer {
+  /* .noteContainer {
     padding-top: 137px;
-  }
+  } */
 }
 
 
