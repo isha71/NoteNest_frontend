@@ -8,7 +8,7 @@ function Form(props) {
   const navigate = useNavigate();
   // State to hold user data
   const [userData, setUserData] = useState({
-    fullName: "",
+    fullname: "",
     username: "",
     password: "",
     confirmPassword: "",

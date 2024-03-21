@@ -37,30 +37,6 @@ function Header(props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    // <header className="columnAlignment">
-    //   <nav className="rowAlignment headerContainer">
-    //     <h1 className="rowAlignment">
-    //       <i className="material-icons alignSelfCenter">description</i>
-    //       {head}
-    //     </h1>
-    //     <span className="fill"></span>
-    //     <span className="greetUser">Welcome, {props.username}</span>
-    //     <div className="rowAlignment">
-    //       <button
-    //         onClick={handleLogOut}
-    //         className="accentButton darkAccentButton navButton"
-    //       >
-    //         Log out
-    //       </button>
-    //       <button
-    //         onClick={handleDeleteAccount}
-    //         className="accentButton transparentAccentButton light navButton"
-    //       >
-    //         Delete account
-    //       </button>
-    //     </div>
-    //   </nav>
-    // </header>
     <header className="columnAlignment">
       <nav className="rowColumnAlignment ">
         <div className="rowColumnAlignment">
