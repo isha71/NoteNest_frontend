@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SERVER_ADDRESS } from "../config";
+import MenuIcon from "@mui/icons-material/Menu";
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const head = "NoteNest";
 
@@ -41,9 +43,7 @@ function Header(props) {
       <nav className="rowColumnAlignment ">
         <div className="rowColumnAlignment">
           <h1 className="rowAlignment">
-            <i className="material-symbols-outlined alignSelfCenter">
-              description
-            </i>
+            <DescriptionIcon/>
             {head}
           </h1>
           <span className="greetUser">Welcome, {props.username}</span>
@@ -56,7 +56,9 @@ function Header(props) {
             setMenuOpen(!menuOpen);
           }}
         >
-          <span class="material-symbols-outlined">menu</span>
+          <span>
+            <MenuIcon />
+          </span>
         </div>
         <ul className={menuOpen ? "open" : ""}>
           <li>

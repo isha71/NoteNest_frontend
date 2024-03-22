@@ -17,9 +17,9 @@ function Note(props) {
     props.noteToEdit
       ? props.noteToEdit
       : {
-        note_title: "",
-        note_content: "",
-      }
+          note_title: "",
+          note_content: "",
+        }
   );
 
   // State to manage whether the input field is visible
@@ -49,7 +49,9 @@ function Note(props) {
   // Function to add or edit a note
   function addNote(e) {
     e.preventDefault();
-    if (props.editMode) { // If in edit mode
+    if (props.editMode) {
+      // If in edit mode
+      props.setNoteInContainer({ isNote: false, content: {} });
       axios
         .post(`${SERVER_ADDRESS}/editNote`, {
           note: note,
@@ -58,7 +60,8 @@ function Note(props) {
         .then((response) => {
           const { updatedNoteId } = response.data;
           props.setEditMode(false);
-          props.updateArray({ // Update the notes array with the edited note
+          props.updateArray({
+            // Update the notes array with the edited note
             id: updatedNoteId,
             note_title: note.note_title,
             note_content: note.note_content,
@@ -69,14 +72,16 @@ function Note(props) {
           console.log("error updating note in database");
           console.error(err);
         });
-    } else { // If adding a new note
+    } else {
+      // If adding a new note
       axios
         .post(`${SERVER_ADDRESS}/addNote`, {
           note: note,
         })
         .then((response) => {
           const { addedNoteId } = response.data;
-          props.updateArray({ // Update the notes array with the newly added note
+          props.updateArray({
+            // Update the notes array with the newly added note
             id: addedNoteId,
             note_title: note.note_title,
             note_content: note.note_content,
@@ -84,7 +89,7 @@ function Note(props) {
           setNote({ note_title: "", note_content: "" }); // Reset note state
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
         });
     }
   }

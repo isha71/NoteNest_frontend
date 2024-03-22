@@ -27,6 +27,10 @@ function Keeper() {
   const [editMode, setEditMode] = useState(false);
   const [noteToEdit, setNoteToEdit] = useState({});
   const [idOfNoteToEdit, setIdOfNoteToEdit] = useState();
+  const [noteInContainer, setNoteInContainer] = useState({
+    isNote: false,
+    content: {},
+  });
 
   // Fetch user data and existing notes from the server on component mount
   useEffect(() => {
@@ -66,7 +70,18 @@ function Keeper() {
 
   // Function to edit a note item in the notes array
   function editItem(id, noteLocalArrayId) {
+    if (noteInContainer.isNote === true) {
+      setNotesArray((prevNotesArray) => {
+        return [...prevNotesArray, noteInContainer.content];
+      });
+    }
     const { note_title, note_content } = notesArray[noteLocalArrayId];
+    const content = {
+      id: id,
+      note_title: note_title,
+      note_content: note_content,
+    };
+    setNoteInContainer({ isNote: true, content: content });
     setNoteToEdit({ note_title: note_title, note_content: note_content });
     setEditMode(true);
     setIdOfNoteToEdit(id);
@@ -83,7 +98,7 @@ function Keeper() {
     <div className="columnAlignment noteContainer backgroundContainer">
       <Header username={username} />
       <div className="columnAlignment noteContentContainer">
-      {/* Render Note component for adding/editing notes */}
+        {/* Render Note component for adding/editing notes */}
         {editMode ? (
           <Note
             noteToEdit={noteToEdit}
@@ -91,12 +106,14 @@ function Keeper() {
             setEditMode={setEditMode}
             idOfNoteToEdit={idOfNoteToEdit}
             updateArray={updateArray}
+            noteInContainer={noteInContainer}
+            setNoteInContainer={setNoteInContainer}
           />
         ) : (
           <Note updateArray={updateArray} />
         )}
         <div className="rowAlignment userNotesContainer">
-         {/* Render existing notes */}
+          {/* Render existing notes */}
           {notesArray.map((note, index) => {
             return (
               <RenderNotes

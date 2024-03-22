@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Form from "./Form";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import DescriptionIcon from '@mui/icons-material/Description';
+
 
 function LoginFormPage() {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ function LoginFormPage() {
   return (
     <div className="backgroundContainer columnAlignment loginFormContainer alignCenter">
       <h1 className="rowAlignment">
-        <i className="material-icons alignSelfCenter">description</i>
+        <DescriptionIcon className="alignSelfCenter"/>
         NoteNest
       </h1>
       <div className="columnAlignment formContentContainer alignCenter">

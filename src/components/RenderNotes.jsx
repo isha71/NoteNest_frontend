@@ -2,7 +2,7 @@ import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 function RenderNotes(props) {
-   // Render a single note with title, content, and edit/delete buttons
+  // Render a single note with title, content, and edit/delete buttons
   return (
     <div className="note columnAlignment">
       <span className="noteTitle">{props.title}</span>

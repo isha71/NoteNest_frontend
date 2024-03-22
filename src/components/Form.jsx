@@ -75,7 +75,6 @@ function Form(props) {
         })
         .catch((err) => {
           // Handle login errors
-          console.log(err.response.status);
           if (err.response.status === 404) {
             // If user doesn't exist, alert user to register
             alert("User not found");
